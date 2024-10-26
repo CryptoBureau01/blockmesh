@@ -34,14 +34,15 @@ ________________________________________________________________________________
 
 This script provides an interactive command-line interface to manage BlockMesh node operations, including installation, setup, service management, and cleanup. The menu-driven tool includes options for each operation, with on-screen feedback for each step.
 
-  ### Features
-      -  Install Dependencies: Installs essential tools such as curl, wget, tar, jq, and git for node setup.
-      -  Setup Node: Downloads and extracts the BlockMesh CLI, configuring it for system use.
-      -  Run Node: Sets up and starts a systemd service for BlockMesh, with prompts for user credentials.
-      -  Logs Checker: Displays the last 100 lines of logs for BlockMesh to assist with troubleshooting.
-      -  Restart Node: Restarts the BlockMesh systemd service.
-      -  Delete Node: Stops, disables, and removes all files associated with the BlockMesh service.
-      -  Exit: Exits the script interface.
+ 
+### Features
+- Install Dependencies: Installs essential tools such as curl, wget, tar, jq, and git for node setup.
+- Setup Node: Downloads and extracts the BlockMesh CLI, configuring it for system use.
+- Run Node: Sets up and starts a systemd service for BlockMesh, with prompts for user credentials.
+- Logs Checker: Displays the last 100 lines of logs for BlockMesh to assist with troubleshooting.
+- Restart Node: Restarts the BlockMesh systemd service.
+- Delete Node: Stops, disables, and removes all files associated with the BlockMesh service.
+- Exit: Exits the script interface.
 
 ____________________________________________________________________________________________________________________________
 
