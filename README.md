@@ -17,6 +17,9 @@
 ____________________________________________________________________________________________________________________________
 
 
+# Note: Please register on the BlockMesh website before setting up the node: [Register here](https://app.blockmesh.xyz/register?invite_code=950ff838-81c6-4e22-a531-b776cfdb1e8a)
+
+
 ## Tool Installation Command
 
 To install the necessary tools for managing your Blockmesh node, run the following command in your terminal:
