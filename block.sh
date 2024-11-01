@@ -31,6 +31,12 @@ install_dependency() {
 
 
 setup_blockmesh_cli() {
+    # Create the blockmesh directory if it doesn't exist
+    mkdir -p ~/blockmesh
+
+    # Navigate to the blockmesh directory
+    cd ~/blockmesh || exit
+
     # URL and filename for the BlockMesh CLI
     URL="https://github.com/block-mesh/block-mesh-monorepo/releases/download/v0.0.321/blockmesh-cli-x86_64-unknown-linux-gnu.tar.gz"
     FILENAME=$(basename "$URL")  # Extracts the filename from the URL
@@ -42,18 +48,17 @@ setup_blockmesh_cli() {
     # Step 2: Extract the downloaded file
     if [ -f "$FILENAME" ]; then
         echo "Extracting BlockMesh CLI..."
-        tar -xzf "$FILENAME"
+        tar -xzf "$FILENAME" -C ~/blockmesh  # Extract in the blockmesh folder
         
         # Step 3: Remove the downloaded archive file
         echo "Cleaning up the downloaded archive..."
-        #rm "$FILENAME"
+        rm "$FILENAME"
         
         echo "Setup completed successfully!"
     else
         echo "Error: Download failed."
         return 1
     fi
-
 
     # Call the node_menu function
     node_menu
@@ -65,7 +70,7 @@ setup_blockmesh_cli() {
 
 setup_blockmesh_service() {
     # File path for credentials
-    credentials_file="/root/blockmesh/block-data.txt"
+    credentials_file="/root/blockmesh/data.txt"
 
     # Check if block-data.txt already exists
     if [[ -f "$credentials_file" ]]; then
@@ -99,13 +104,13 @@ setup_blockmesh_service() {
     # Create the systemd service file with user-provided email and password
     sudo bash -c "cat <<EOT > /etc/systemd/system/blockmesh.service
 [Unit]
-Description=BlockMesh
+Description=BlockMesh Node Service
 After=network.target
 
 [Service]
 User=$USER
-ExecStart=$HOME/target/release/blockmesh-cli login --email '$email' --password '$password'
-WorkingDirectory=$HOME/target/release
+ExecStart=/root/blockmesh/target/release/blockmesh-cli --email '$email' --password '$password' login
+WorkingDirectory=/root/blockmesh/target/release
 Restart=on-failure
 
 [Install]
@@ -114,11 +119,9 @@ EOT"
 
     # Reload the systemd daemon and enable the service
     sudo systemctl daemon-reload
-    sudo systemctl enable blockmesh
     sudo systemctl enable blockmesh.service
 
     # Start the service
-    sudo systemctl start blockmesh
     sudo systemctl start blockmesh.service
 
     echo "BlockMesh service created and started successfully."
@@ -197,7 +200,7 @@ delete_node() {
     sudo systemctl daemon-reload
 
     # Remove the target directory
-    rm -rf target
+    rm -rf /root/blockmesh
 
     echo "$service_name has been stopped and deleted successfully."
 
