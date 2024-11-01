@@ -46,7 +46,7 @@ setup_blockmesh_cli() {
         
         # Step 3: Remove the downloaded archive file
         echo "Cleaning up the downloaded archive..."
-        rm "$FILENAME"
+        #rm "$FILENAME"
         
         echo "Setup completed successfully!"
     else
