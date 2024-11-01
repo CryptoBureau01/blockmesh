@@ -221,7 +221,7 @@ node_menu() {
     print_info "1. Install-Dependencies"
     print_info "2. Setup-Node"
     print_info "3. Run-Node"
-    print_info "4. Logs-Cheker"
+    print_info "4. Logs-Checker"
     print_info "5. ReStart-Node"
     print_info "6. Delete-Node"
     print_info "7. Exit"
