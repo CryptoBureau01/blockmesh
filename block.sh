@@ -109,7 +109,7 @@ After=network.target
 
 [Service]
 User=$USER
-ExecStart=/root/blockmesh/target/release/blockmesh-cli --email '$email' --password '$password' login
+ExecStart=/root/blockmesh/target/release/blockmesh-cli login --email '$email' --password '$password'
 WorkingDirectory=/root/blockmesh/target/release
 Restart=on-failure
 
