@@ -194,7 +194,7 @@ delete_node() {
     sudo systemctl disable "$service_name"
 
     # Remove the service file
-    sudo rm /etc/systemd/system/"$service_name"
+    sudo rm -rf /etc/systemd/system/blockmesh.service
 
     # Reload the systemd manager configuration
     sudo systemctl daemon-reload
