@@ -109,8 +109,8 @@ After=network.target
 
 [Service]
 User=$USER
-ExecStart=/root/blockmesh/target/release/blockmesh-cli login --email '$email' --password '$password'
-WorkingDirectory=/root/blockmesh/target/release
+ExecStart=/root/blockmesh/target/x86_64-unknown-linux-gnu/release/blockmesh-cli login --email '$email' --password '$password' 
+WorkingDirectory=/root/blockmesh/target/x86_64-unknown-linux-gnu/release
 Restart=on-failure
 
 [Install]
