@@ -38,7 +38,7 @@ setup_blockmesh_cli() {
     cd ~/blockmesh || exit
 
     # URL and filename for the BlockMesh CLI
-    URL="https://github.com/block-mesh/block-mesh-monorepo/releases/download/v0.0.331/blockmesh-cli-x86_64-unknown-linux-gnu.tar.gz"
+    URL="https://github.com/block-mesh/block-mesh-monorepo/releases/download/v0.0.347/blockmesh-cli-x86_64-unknown-linux-gnu.tar.gz"
     FILENAME=$(basename "$URL")  # Extracts the filename from the URL
 
     # Step 1: Download the file
